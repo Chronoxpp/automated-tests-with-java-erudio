@@ -4,10 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
@@ -22,6 +19,14 @@ class SimpleMathTest
   void beforeEach()
   {
     simpleMath = new SimpleMath();
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {"Lucas", "Eduarda", "Geovana", "Benjamin"})
+  void testValueSource(String firstName)
+  {
+    System.out.println(firstName);
+    assertNotNull(firstName);
   }
 
   @DisplayName("Test double subtraction [firstNumber, secondNumber, expected]")
