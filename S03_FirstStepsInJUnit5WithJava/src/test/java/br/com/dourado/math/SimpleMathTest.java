@@ -24,7 +24,7 @@ class SimpleMathTest
 
   @DisplayName("Test 6.2 / 2 = 3.1")
   @ParameterizedTest
-  @MethodSource("testDivisionInputParameters")
+  @MethodSource()
   void testDivision(double firstNumber, double secondNumber, double excepted)
   {
     Double actual = simpleMath.division(firstNumber, secondNumber);
@@ -37,7 +37,7 @@ class SimpleMathTest
     );
   }
 
-  public static Stream<Arguments> testDivisionInputParameters()
+  public static Stream<Arguments> testDivision()
   {
     return Stream.of(
       Arguments.of(6.2D, 2D, 3.1D),
