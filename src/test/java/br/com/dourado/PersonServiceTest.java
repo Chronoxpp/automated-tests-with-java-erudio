@@ -30,4 +30,27 @@ public class PersonServiceTest
       () -> "The createPerson should not have returned null!"
     );
   }
+
+  @DisplayName("When Create a Person With Success Should Contains First Name in Returned Person")
+  @Test
+  void testCreatePerson_WhenSucess_ShouldContainsFirstNameInReturnedPerson()
+  {
+    IPersonService service = new PersonService();
+
+    Person person = new Person(
+      "Lucas",
+      "Dourado",
+      "lucas@gmail.com",
+      "Rondonópolis - MT - Brasil",
+      "Male"
+    );
+
+    Person actual = service.createPerson(person);
+
+    assertEquals(
+      person.getFirstName(),
+      actual.getFirstName(),
+      () -> "The created person should have first name as " + person.getFirstName()
+    );
+  }
 }
