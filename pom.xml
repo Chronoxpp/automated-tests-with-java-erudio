@@ -4,11 +4,11 @@
     <artifactId>automated-tests-with-java-erudio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
-        <java.version>19</java.version>
-        <junit.version>5.9.2</junit.version>
-        <maven.compiler.target>19</maven.compiler.target>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+        <java.version>25</java.version>
+        <junit.version>6.1.3</junit.version>
+        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.plugin.version>3.16.0</maven.compiler.plugin.version>
     </properties>
     
     <dependencies>
