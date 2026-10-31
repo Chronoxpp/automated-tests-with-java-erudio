@@ -3,25 +3,32 @@ package br.com.dourado;
 import br.com.dourado.model.Person;
 import br.com.dourado.service.IPersonService;
 import br.com.dourado.service.PersonService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonServiceTest
 {
-  @DisplayName("When Create a Person With Success Should Return a Person Object")
-  @Test
-  void testCreatePerson_WhenSucess_ShouldReturnPersonObject()
-  {
-    IPersonService service = new PersonService();
+  Person person;
 
-    Person person = new Person(
+  @BeforeEach
+  void setUp()
+  {
+     person = new Person(
       "Lucas",
       "Dourado",
       "lucas@gmail.com",
       "Rondonópolis - MT - Brasil",
       "Male"
     );
+  }
+
+  @DisplayName("When Create a Person With Success Should Return a Person Object")
+  @Test
+  void testCreatePerson_WhenSucess_ShouldReturnPersonObject()
+  {
+    IPersonService service = new PersonService();
 
     Person actual = service.createPerson(person);
 
@@ -36,14 +43,6 @@ public class PersonServiceTest
   void testCreatePerson_WhenSucess_ShouldContainsFirstNameInReturnedPerson()
   {
     IPersonService service = new PersonService();
-
-    Person person = new Person(
-      "Lucas",
-      "Dourado",
-      "lucas@gmail.com",
-      "Rondonópolis - MT - Brasil",
-      "Male"
-    );
 
     Person actual = service.createPerson(person);
 
