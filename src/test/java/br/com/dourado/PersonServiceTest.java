@@ -41,6 +41,7 @@ public class PersonServiceTest
 
     assertAll(
       "Created person should contains all atributes as valid",
+      () -> assertNotNull(actual.getId(), () -> "Created person should have a id"),
       () -> assertEquals(expected.getFirstName(), actual.getFirstName(), () -> "Created person should have first name as " + expected.getFirstName()),
       () -> assertEquals(expected.getLastName(), actual.getLastName(), () -> "Created person should have last name as " + expected.getLastName()),
       () -> assertEquals(expected.getEmail(), actual.getEmail(), () -> "Created person should have email as " + expected.getEmail()),
