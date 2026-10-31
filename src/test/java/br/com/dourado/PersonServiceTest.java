@@ -10,14 +10,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonServiceTest
 {
-  Person person;
+  Person expected;
 
   IPersonService service;
 
   @BeforeEach
   void setUp()
   {
-     service = new PersonService();
+    service = new PersonService();
+
+    expected = new Person(
+      "Lucas",
+      "Dourado",
+      "lucas@gmail.com",
+      "Rondonópolis - MT - Brasil",
+      "Male"
+    );
   }
 
   @DisplayName("When Create a Person With Success Should Return a Person With All Atributes")
@@ -47,6 +55,19 @@ public class PersonServiceTest
       () -> assertEquals(expected.getEmail(), actual.getEmail(), () -> "Created person should have email as " + expected.getEmail()),
       () -> assertEquals(expected.getAddress(), actual.getAddress(), () -> "Created person should have address as " + expected.getAddress()),
       () -> assertEquals(expected.getGender(), actual.getGender(), () -> "Created person should have gender as " + expected.getGender())
+    );
+  }
+
+  @DisplayName("When Create a Person with null email Should Throw Exception")
+  @Test
+  void testCreatePeson_WhithNullEmail_ShouldThrowIllegalArgumentExceptionException()
+  {
+    expected.setEmail(null);
+
+    assertThrows(
+      IllegalArgumentException.class,
+      () -> service.createPerson(expected),
+      () -> "Empty email should have cause an IllegalArgumentException"
     );
   }
 }
