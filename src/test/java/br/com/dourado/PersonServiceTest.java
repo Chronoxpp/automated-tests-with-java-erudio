@@ -64,10 +64,18 @@ public class PersonServiceTest
   {
     expected.setEmail(null);
 
-    assertThrows(
+    IllegalArgumentException actualException;
+    String expectedExceptionMessage = "The person email is null or empty";
+
+    actualException = assertThrows(
       IllegalArgumentException.class,
       () -> service.createPerson(expected),
       () -> "Empty email should have cause an IllegalArgumentException"
+    );
+
+    assertTrue(
+      actualException.getMessage().contains(expectedExceptionMessage),
+      () -> "Exception should have a message: " + expectedExceptionMessage
     );
   }
 }
